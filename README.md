@@ -1,16 +1,53 @@
-# React + Vite
+gunakan review metode CODE untuk readme agar rapi
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+*Aplikasi dashboard monitoring kendaraan yang dibuat untuk kebutuhan Technical Test Frontend Developer TransJakarta*
 
-Currently, two official plugins are available:
+Aplikasi menggunakan data kendaraan dari API MBTA V3 untuk menampilkan informasi kendaraan, rute, perjalanan, dan lokasi kendaraan pada peta.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Teknologi
+-React Js
+-Vite untuk Development dan build
+-Tailwind CSS
+-Axios – HTTP request
+-React Leaflet
+-Lucide React – Icon
 
-## React Compiler
+Fitur
+-Menampilkan daftar kendaraan dan statusnya
+-Filter berdasarkan Route dan Trip
+-Multi-select filter dengan infinite scroll
+-Pagination daftar kendaraan
+-Popup detail informasi kendaraan
+-Peta lokasi kendaraan
+-Loading indicator saat mengambil data
+-Refresh data dan penanganan error
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Cara Menjalankan
+1. Clone repository
+git clone https://github.com/USERNAME/transjakarta-fleet.git
+cd transjakarta-fleet
+2. Install dependencies
+npm install
+3. Jalankan aplikasi
+npm run dev
+4. Build aplikasi
+npm run build
 
-## Expanding the Oxlint configuration
+Arsitektur Aplikasi dengan memisahkan halaman, komponen UI, dan layanan API.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+src/
+├── components/
+│   ├── VehicleCard.jsx
+│   ├── VehicleDetail.jsx
+│   ├── VehicleFilter.jsx
+│   ├── VehicleMap.jsx
+│   └── Pagination.jsx
+├── pages/
+│   └── Dashboard.jsx
+└── services/
+    └── api.js
+
+Alur ambil data:
+MBTA API → API Service → React State → UI Components
+
+Sumber Data : MBTA V3 API: https://api-v3.mbta.com
