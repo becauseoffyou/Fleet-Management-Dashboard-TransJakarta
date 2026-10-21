@@ -24,7 +24,6 @@ export default function VehicleDetail({
 
     const vehicleId = vehicle?.id;
 
-    // Fetch detail terbaru ketika popup dibuka
     useEffect(() => {
         if (!vehicleId) {
             return;
@@ -88,8 +87,6 @@ export default function VehicleDetail({
 
         return () => controller.abort();
     }, [vehicleId, retryKey]);
-
-    // Escape untuk menutup popup
     useEffect(() => {
         if (!vehicleId) return;
 
@@ -108,11 +105,7 @@ export default function VehicleDetail({
             );
         };
     }, [vehicleId, onClose]);
-
-    // Jangan render popup jika tidak ada kendaraan
     if (!vehicle) return null;
-
-    // Gunakan data terbaru setelah fetching berhasil
     const currentVehicle = detail || vehicle;
 
     const currentIncluded = detail
@@ -185,11 +178,11 @@ export default function VehicleDetail({
                 <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-5">
                     <div>
                         <h2 className="text-xl font-bold text-gray-900">
-                            Vehicle Details
+                            Detail Kendaraan
                         </h2>
 
                         <p className="text-sm text-gray-500">
-                            Vehicle information and current location
+                            Informasi kendaraan dan lokasi saat ini
                         </p>
                     </div>
 
@@ -226,7 +219,6 @@ export default function VehicleDetail({
                         </div>
                     </div>
                 ) : error ? (
-                    /* Error */
                     <div className="flex min-h-80 flex-col items-center justify-center gap-4 p-6 text-center">
                         <p
                             role="alert"
@@ -247,9 +239,7 @@ export default function VehicleDetail({
                         </button>
                     </div>
                 ) : (
-                    /* Vehicle Details */
                     <div className="space-y-6 p-6">
-                        {/* Vehicle identity */}
                         <div className="flex flex-wrap items-center gap-4">
                             <div className="rounded-xl bg-blue-50 p-3 text-blue-700">
                                 <BusFront size={27} />
@@ -274,7 +264,6 @@ export default function VehicleDetail({
                             </span>
                         </div>
 
-                        {/* Information */}
                         <div className="grid gap-3 sm:grid-cols-2">
                             {[
                                 ["Route", routeName],
@@ -303,7 +292,6 @@ export default function VehicleDetail({
                             ))}
                         </div>
 
-                        {/* Map */}
                         <div>
                             <div className="mb-3 flex items-center gap-2">
                                 <MapPin
@@ -312,7 +300,7 @@ export default function VehicleDetail({
                                 />
 
                                 <h4 className="font-semibold text-gray-900">
-                                    Current Location
+                                    Lokasi Saat Ini
                                 </h4>
                             </div>
 

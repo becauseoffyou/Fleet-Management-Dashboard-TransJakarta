@@ -67,15 +67,15 @@ export const getTrips = async (
     return response.data;
 };
 
-export async function getVehicleDetail(vehicleId) {
-    const response = await fetch(
-        `https://api-v3.mbta.com/vehicles/${encodeURIComponent(vehicleId)}?include=route,trip`
-    );
+// export async function getVehicleDetail(vehicleId) {
+//     const response = await fetch(
+//         `https://api-v3.mbta.com/vehicles/${encodeURIComponent(vehicleId)}?include=route,trip`
+//     );
 
-    if (!response.ok) {
-        throw new Error("Failed to fetch vehicle details");
-    }
+//     if (!response.ok) {
+//         throw new Error("Failed to fetch vehicle details");
+//     }
 
-    return response.json();
-}
+//     return response.json();
+// }
 export default api;

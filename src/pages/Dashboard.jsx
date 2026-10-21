@@ -43,14 +43,11 @@ export default function Dashboard() {
 
                 setVehicles(result.data || []);
                 setIncluded(result.included || []);
-                // API MBTA dapat mengembalikan pagination links
-                // tanpa total keseluruhan yang eksplisit.
                 const apiTotal = result.meta?.total;
 
                 if (typeof apiTotal === "number") {
                     setTotal(apiTotal);
                 } else {
-                    // Estimasi sementara, bukan total pasti.
                     setTotal(
                         offset +
                         (result.data?.length || 0) +
@@ -97,7 +94,7 @@ export default function Dashboard() {
 
                     <div>
                         <h1 className="text-xl font-bold text-gray-900">
-                            Fleet Management
+                            Monitoring Dashboard
                         </h1>
                         <p className="text-sm text-gray-500">
                             Vehicle Monitoring Dashboard
@@ -110,10 +107,10 @@ export default function Dashboard() {
                 <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
                     <div>
                         <h2 className="text-2xl font-bold text-gray-900">
-                            Vehicle Overview
+                            Data Kendaraan
                         </h2>
                         <p className="mt-1 text-sm text-gray-500">
-                            Monitor vehicle information and current status.
+                            Pantau informasi dan status terkini kendaraan.
                         </p>
                     </div>
 

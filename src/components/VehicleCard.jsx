@@ -79,7 +79,7 @@ export default function VehicleCard({ vehicle, onDetail }) {
                 onClick={() => onDetail(vehicle)}
                 className="mt-6 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-blue-700 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-800"
             >
-                View Details
+                Detail Kendaraan
                 <ArrowUpRight size={16} />
             </button>
         </div>
